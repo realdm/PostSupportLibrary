@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PostSupportLibrary</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_aberto">Drawer aberto</string>
+    <string name="drawer_fechad0">Drawer Fechado</string>
+</resources>

@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
 
+
+
             }
 
             @Override
@@ -103,10 +105,13 @@ public class MainActivity extends AppCompatActivity {
                 //pintar a antiga posicao ao normal
                 pintarItems(mUltimaPosicaoDoDrawer,false);
 
-                //pintar a posicao selecionada com
                 pintarItems(mPosicaoSelecionada,true);
 
-                //Pode fazer o commit dos fragments que deseja aqui
+            }
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
 
             }
         };
@@ -128,6 +133,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         mListaDrawer.setOnItemClickListener(new DrawerItemClickListener());
+
+
+        
     }
 
     @Override
@@ -173,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
         //muda a cor do drawable para as especificadas
         DrawableCompat.setTint(iconDrawable,color);
+        Log.e("MainActivity","Drawable Tinted");
 
     }
 
@@ -218,7 +227,11 @@ public class MainActivity extends AppCompatActivity {
                 throw new UnsupportedOperationException("Invalid position");
             }
         }
-        Toast.makeText(this,"Nova posicao do drawer e: "+mPosicaoSelecionada+" a antiga e: "+mUltimaPosicaoDoDrawer,Toast.LENGTH_LONG).show();
+
+        pintarItems(mUltimaPosicaoDoDrawer,false);
+
+        pintarItems(mPosicaoSelecionada,true);
+
         mDrawerLayout.closeDrawer(mListaDrawer);
     }
 
